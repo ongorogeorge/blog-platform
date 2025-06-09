@@ -10,7 +10,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const cookieStore = cookies()
   const adminAuth = cookieStore.get("admin-auth")?.value
 
-  if (!adminAuth || adminAuth !== "authenticated") {
+  if (adminAuth || adminAuth == "authenticated") {
     redirect("/admin/login")
   }
 
